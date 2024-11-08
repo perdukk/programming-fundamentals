@@ -1,8 +1,7 @@
-#include <cmath>
+#include <iostream>
 using namespace std;
 
 int main()
-
 {
 int x;// x - day of week
 cout<< "write day of week"<< endl;
@@ -29,6 +28,6 @@ cout << "weekend" << endl;
 if(x==7) //sunday
 cout << "weekend" << endl;
 
-if(x>=8) //not exists
+if(x>=8 || x <=1 ) //not exists
 cout << "incorrect data" << endl;
 }
