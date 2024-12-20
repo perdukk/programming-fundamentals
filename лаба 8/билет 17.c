@@ -1,92 +1,38 @@
-//максимова лаба №8 билет 17 на си 
-#include<stdio.h>
-
-int main() 
+//максимова лаба 8 билет 17
+//задача2
+#include <stdio.h>
+int main()
 {
-    int m, n;
-    printf("введите m: ");
-    scanf("%d", &m);
-    printf("введите n: ");
-    scanf("%d", &n);
- 
-    int matrix[m][n];
+    int k=0,m,n,i,j,x,det;
+    int q,w,e,r;
+    int s[10][10];
     
-    printf("элементы матрицы:\n");
-     for (int i = 0; i < m; i++) 
-     {
-        for (int j = 0; j < n; j++) 
-        {
-            scanf("%d", &matrix[i][j]);
-        }
-     }
+    printf("Введите количество строк/столбцов: ");
+    scanf("%d",&m);
+    n=m;
     
-    for (int i=0; i<m; i++) 
+   
+    for (int i=0;i<m;i++)
     {
-        int sum=0;
-        for (int j = 0; j < n; j++) 
+        for (int j=0;j<n;j++)
         {
-            sum += matrix[i][j];
+            printf("\nвведите элемент s[%d][%d]: ", i, j);
+            scanf("%d", &s[i][j]);
         }
-
-        float averagesum = (float)sum / n;
-        int count = 0;
-        for (int j = 0; j < n; j++) 
-        {
-            if (matrix[i][j] < averagesum) 
-            {
-                count++;
-            }
-        }
-       
-        printf("строчка № %d: %d (среднее арифметическое строчки: %.2f)\n", i + 1, count, averagesum);
     }
-    return 0;
-}
-
-
-
-// лаба 8 билет 17 си задача 1
-
-#include<stdio.h>
-
-int main() 
-{
-    int m, n;
-    printf("введите m: ");
-    scanf("%d", &m);
-    printf("введите n: ");
-    scanf("%d", &n);
- 
-    int matrix[m][n];
+   if (m==1)
+   {
+        det = s[0][0];
+   }
     
-    printf("элементы матрицы:\n");
-     for (int i = 0; i < m; i++) 
-     {
-        for (int j = 0; j < n; j++) 
-        {
-            scanf("%d", &matrix[i][j]);
-        }
-     }
-    
-    for (int i=0; i<m; i++) 
+    if (m==2)
     {
-        int sum=0;
-        for (int j = 0; j < n; j++) 
-        {
-            sum += matrix[i][j];
-        }
-
-        float avrsum = (float)sum / n;
-        int count = 0;
-        for (int j = 0; j < n; j++) 
-        {
-            if (matrix[i][j] < avrsum) 
-            {
-                count++;
-            }
-        }
-       
-        printf("строчка № %d: %d (среднее арифметическое строчки: %.2f)\n", i + 1, count, avrsum);
+        det = s[0][0]*s[1][1]-s[0][1]*s[1][0];
     }
+    else
+    {
+        det = s[0][0]*s[1][1]*s[2][2]+s[1][0]*s[2][1]*s[0][2]+s[1][1]*s[2][2]-s[1][2]*s[2][1]*s[0][0]-s[0][1]*s[1][0]*s[2][2];
+    }
+    printf("определитель матрицы равен %d",det);
     return 0;
 }
