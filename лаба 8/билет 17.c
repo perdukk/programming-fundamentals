@@ -42,3 +42,51 @@ int main()
     }
     return 0;
 }
+
+
+
+// лаба 8 билет 17 си задача 1
+
+#include<stdio.h>
+
+int main() 
+{
+    int m, n;
+    printf("введите m: ");
+    scanf("%d", &m);
+    printf("введите n: ");
+    scanf("%d", &n);
+ 
+    int matrix[m][n];
+    
+    printf("элементы матрицы:\n");
+     for (int i = 0; i < m; i++) 
+     {
+        for (int j = 0; j < n; j++) 
+        {
+            scanf("%d", &matrix[i][j]);
+        }
+     }
+    
+    for (int i=0; i<m; i++) 
+    {
+        int sum=0;
+        for (int j = 0; j < n; j++) 
+        {
+            sum += matrix[i][j];
+        }
+
+        float avrsum = (float)sum / n;
+        int count = 0;
+        for (int j = 0; j < n; j++) 
+        {
+            if (matrix[i][j] < avrsum) 
+            {
+                count++;
+            }
+        }
+       
+        printf("строчка № %d: %d (среднее арифметическое строчки: %.2f)\n", i + 1, count, avrsum);
+    }
+    return 0;
+}
